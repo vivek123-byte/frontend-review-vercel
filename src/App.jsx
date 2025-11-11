@@ -22,7 +22,7 @@ function App() {
     try {
       setLoading(true);
       setReview(""); 
-      const response = await axios.post("https://backend-resume-vercel-dzpx.vercel.app/ai", {
+      const response = await axios.post("https://backend-resume-vercel-dzpx.vercel.app/ai/get-review", {
         code,
       });
       setReview(response.data);
