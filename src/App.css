@@ -10,7 +10,7 @@ body {
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
   padding: 1rem;
 }
@@ -37,6 +37,7 @@ header p {
   margin-top: 0.3rem;
 }
 
+/* ✅ Desktop layout */
 main {
   display: flex;
   gap: 1.2rem;
@@ -51,6 +52,7 @@ main {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
+  min-height: 70vh;
 }
 
 .panel h2 {
@@ -67,9 +69,9 @@ main {
   border: 1px solid #2e2e32;
   overflow-y: auto;
   overflow-x: auto;
-  min-height: 60vh;
   font-size: 1rem;
-  min-width: 20vw;
+  width: 100%;
+  max-height: 60vh;
 }
 
 .output-box {
@@ -86,8 +88,8 @@ main {
 }
 
 .review-btn {
-  margin: 0.5rem;
-  padding: 0.4rem;
+  margin-top: 0.6rem;
+  padding: 0.5rem;
   background: #00d4ff;
   border: none;
   border-radius: 6px;
@@ -102,6 +104,7 @@ main {
   transform: scale(1.03);
 }
 
+/* ✅ Loader */
 .loader {
   position: absolute;
   top: 50%;
@@ -116,52 +119,49 @@ main {
 }
 
 @keyframes spin {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* ✅ Responsive Design BELOW */
-
-/* Tablet Screens */
+/* ✅ Tablet Fix */
 @media (max-width: 1024px) {
   main {
-    height: auto;
     flex-direction: column;
+    height: auto;
+  }
+
+  .panel {
+    min-height: auto;
   }
 
   .editor-box,
   .output-box {
-    min-height: 35vh;
-    min-width: 100%;
-  }
-
-  header h1 {
-    font-size: 1.8rem;
+    max-height: 40vh;
   }
 }
 
-/* Mobile Screens */
+/* ✅ Mobile Fix */
 @media (max-width: 600px) {
   header h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
   }
 
   .panel h2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .editor-box,
   .output-box {
-    font-size: 0.9rem;
-    min-height: 30vh;
+    font-size: 0.85rem;
+    max-height: 35vh;
   }
 
   .review-btn {
     width: 100%;
-    font-size: 0.9rem;
+    padding: 0.7rem;
   }
 }
